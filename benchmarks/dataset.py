@@ -46,6 +46,8 @@ class DatasetConfig:
     num_channels: int | None = None
     sequence_length: int | None = None
     include_in_results: bool = True
+    horizontal_flip_p: float = 0.5
+    min_crop_scale: float = 0.0
 
 
 _IMAGENET_STATS = {"mean": [0.485, 0.456, 0.406], "std": [0.229, 0.224, 0.225]}
@@ -115,6 +117,19 @@ def _timeseries(
 
 
 DATASET_CONFIGS: dict[str, DatasetConfig] = {
+    "cmufaces": DatasetConfig(
+        name="cmufaces",
+        display_name="CMU Face Images",
+        num_classes=4,
+        channels=1,
+        mean=[0.27856666],
+        std=[0.24860810],
+        image_size=(64, 64),
+        builder_name="CMUFaces",
+        num_channels=1,
+        horizontal_flip_p=0.0,
+        min_crop_scale=0.8,
+    ),
     # RGB datasets (3-channel, ImageNet stats unless overridden)
     "beans": _rgb("beans", "Beans", 3, include_in_results=False),
     "awa2": _rgb("awa2", "AWA2", 50),

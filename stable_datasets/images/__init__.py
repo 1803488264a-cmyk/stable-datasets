@@ -11,6 +11,7 @@ from .cifar10_c import CIFAR10C
 from .cifar100 import CIFAR100
 from .cifar100_c import CIFAR100C
 from .clevrer import CLEVRER
+from .cmu_faces import CMUFaces
 from .country211 import Country211
 from .cub200 import CUB200
 from .dsprites import DSprites
@@ -59,6 +60,7 @@ __all__ = [
     "CIFAR100",
     "CIFAR100C",
     "CLEVRER",
+    "CMUFaces",
     "Country211",
     "CUB200",
     "DSprites",

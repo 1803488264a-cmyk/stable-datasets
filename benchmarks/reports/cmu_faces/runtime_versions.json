@@ -1,0 +1,14 @@
+{
+  "python": "3.11.17",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "torch": "2.13.0+cu126",
+    "torchvision": "0.28.0+cu126",
+    "stable-pretraining": "0.1.9.dev10+gab836bf69",
+    "lightning": "2.6.6",
+    "timm": "1.0.30",
+    "numpy": "2.4.6",
+    "scikit-learn": "1.9.1",
+    "torchmetrics": "1.9.0"
+  }
+}

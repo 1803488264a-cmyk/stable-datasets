@@ -173,6 +173,7 @@ def create_eval_callbacks(module: spt.Module, ds_config, embed_dim: int) -> list
 
         knn_probe = spt.callbacks.OnlineKNN(
             name="knn_probe",
+            num_classes=num_classes,
             input="embedding",
             target="label",
             queue_length=20000,
@@ -241,8 +242,15 @@ def ssl_augmentation(
     """
     ops = [
         transforms.RGB(),
-        transforms.RandomResizedCrop(crop_size, scale=crop_scale, interpolation=interpolation),
-        transforms.RandomHorizontalFlip(p=0.5),
+        transforms.RandomResizedCrop(
+            crop_size,
+            scale=(
+                max(crop_scale[0], ds_config.min_crop_scale),
+                max(crop_scale[1], ds_config.min_crop_scale),
+            ),
+            interpolation=interpolation,
+        ),
+        transforms.RandomHorizontalFlip(p=ds_config.horizontal_flip_p),
     ]
     if ds_config.channels != 1:
         ops.extend(
