@@ -75,9 +75,10 @@ class CMUFaces(BaseDatasetBuilder):
         },
         license="CC BY 4.0",
         citation="""@misc{cmu_face_images_124,
+    author = {Mitchell, Tom},
     title = {CMU Face Images},
     publisher = {UCI Machine Learning Repository},
-    year = {1999},
+    year = {1997},
     doi = {10.24432/C5JC79},
     url = {https://archive.ics.uci.edu/dataset/124/cmu+face+images}
 }""",

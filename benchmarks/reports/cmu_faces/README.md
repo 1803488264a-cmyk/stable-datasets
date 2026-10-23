@@ -6,6 +6,7 @@ This contribution adds a reproducible loader for the quarter-resolution CMU Face
 
 - Source: [UCI CMU Face Images](https://archive.ics.uci.edu/dataset/124/cmu+face+images).
 - DOI: [10.24432/C5JC79](https://doi.org/10.24432/C5JC79).
+- Citation: Mitchell, T. (1997). *CMU Face Images*. UCI Machine Learning Repository. UCI lists the donation date separately as June 23, 1999.
 - License: CC BY 4.0, as listed by UCI. Dataset copyright/licensing is distinct from the repository code license.
 - Raw ZIP SHA-256: `01a8b6cc58ac2f825f72abd6cf2b393df067c6529d96f7a90b22dede71b142cc`.
 - Read `faces_4.tar.gz` inside the ZIP without extracting archive paths onto disk.
@@ -29,15 +30,20 @@ This is an explicitly defined custom split, not an official CMU benchmark protoc
 ```python
 from stable_datasets.images import CMUFaces
 
-dataset = CMUFaces()  # Download/build once, then reuse the cache.
-assert {split: len(data) for split, data in dataset.items()} == {
-    "train": 378, "validation": 121, "test": 125,
-}
-sample = dataset["train"][0]
-print(sample["image"].size, sample["subject"], sample["label"])
+def main():
+    dataset = CMUFaces()  # Download/build once, then reuse the cache.
+    assert {split: len(data) for split, data in dataset.items()} == {
+        "train": 378, "validation": 121, "test": 125,
+    }
+    sample = dataset["train"][0]
+    print(sample["image"].size, sample["subject"], sample["label"])
+
+
+if __name__ == "__main__":
+    main()
 ```
 
-`CMUFaces(split="train")` returns one split. Optional `download_dir` and `processed_cache_dir` relocate raw and processed files. Shared split assets are downloaded once. Images remain grayscale PIL images when decoded; conversion to RGB occurs in benchmark transforms only.
+The main guard supports the library downloader's multiprocessing on Windows when this example is saved as a Python script. `CMUFaces(split="train")` returns one split. Optional `download_dir` and `processed_cache_dir` relocate raw and processed files. Shared split assets are downloaded once. Images remain grayscale PIL images when decoded; conversion to RGB occurs in benchmark transforms only.
 
 ## Evaluation protocol
 
@@ -68,7 +74,7 @@ All values below are percentages. Balanced accuracy is mean per-class recall; ma
 | Standardized pixels + logistic regression | 75.67 | 76.00 | 76.10 | 75.83 |
 | SimCLR mean ± sample SD (3 seeds) | 63.27 ± 4.47 | 42.67 ± 5.45 | 42.90 ± 5.64 | 37.00 ± 6.62 |
 
-Best checkpoint epochs (zero-based): seed 42 → 42, seed 43 → 49, seed 44 → 47. The three training logs reached epoch 49. Do not infer training length from the saved `last.ckpt` epoch: in this run those files contained epochs 42/49/47. Evaluation explicitly follows the recorded `best_model_path`.
+Best checkpoint epochs (zero-based): seed 42 → 42, seed 43 → 49, seed 44 → 47. The three training logs reached epoch 49. The saved `last.ckpt` files contained epochs 42/49/47, so their epoch fields do not describe the completed training length. Evaluation explicitly follows the recorded `best_model_path`.
 
 The pixel baseline outperforms these SimCLR runs on this custom split. SimCLR also varies across seeds and performs worse on held-out test people than validation people. This experiment establishes loader/benchmark functionality and provides an honest baseline; it does not establish that SSL is generally inferior. Only 20 people and four test identities are available. Seed variation does not measure uncertainty across alternative subject splits, and broader generalization cannot be inferred from these results.
 
@@ -76,45 +82,74 @@ The pixel baseline outperforms these SimCLR runs on this custom split. SimCLR al
 
 Run commands from the repository root. Match Python/package versions in `runtime_versions.json`; the recorded GPU was an NVIDIA RTX 4060 Laptop GPU. The exact stable-pretraining source revision was `ab836bf699a2be712dfcf980a5eb70d36391e876` (package `0.1.9.dev10+gab836bf69`). Install that revision rather than an unpinned main branch when reproducing these runs. CUDA wheels must match the environment; the recorded torch/torchvision builds were 2.13.0+cu126 / 0.28.0+cu126.
 
-After installing this repository and its benchmark dependencies, check the environment with `python -m pip check`. For example, pin the SSL implementation with:
+The dataset loader requires this contribution's source checkout; an older PyPI release does not contain `CMUFaces`. From that checkout, install the dataset library in an activated Python environment:
 
 ```text
-python -m pip install "git+https://github.com/galilai-group/stable-pretraining.git@ab836bf699a2be712dfcf980a5eb70d36391e876"
+python -m pip install -e .
 ```
 
-First run a smoke test (three training and three validation batches):
+For the benchmark scripts, install the pinned SSL implementation and the remaining benchmark/test dependencies, then check dependency consistency:
 
 ```text
-python -m benchmarks.run_cmu_faces --seed 42 --data-root E:/QuantLearning/cmu_benchmark --output-root E:/QuantLearning/cmu_experiments --smoke-test
+python -m pip install "stable-pretraining @ git+https://github.com/galilai-group/stable-pretraining.git@ab836bf699a2be712dfcf980a5eb70d36391e876" "hydra-joblib-launcher>=1.2" psutil pytest
+python -m pip check
 ```
 
-Then run the fixed full protocol for seeds 42, 43 and 44, replacing `--seed` for each run:
+The pinned SSL package declares its torch, torchvision, Lightning, timm, W&B, Hydra and datasets dependencies. These commands resolve dependencies for the current platform; `runtime_versions.json` records the versions used for the reported experiment rather than a complete environment lockfile. A supported CUDA installation is needed for GPU training. CPU execution is also supported but takes longer; identical results across hardware/software versions are not guaranteed.
+
+The following commands use paths relative to the repository root and work in Windows Command Prompt and POSIX shells. First run a smoke test (three training and three validation batches):
 
 ```text
-python -m benchmarks.run_cmu_faces --seed 42 --data-root E:/QuantLearning/cmu_benchmark --output-root E:/QuantLearning/cmu_experiments
+python -m benchmarks.run_cmu_faces --seed 42 --data-root ./cmu_data --output-root ./cmu_runs --smoke-test
 ```
 
-Choose fresh output directories for a new independent reproduction. The original runner may resume if a matching checkpoint already exists. Smoke and formal checkpoints are kept separate. Paths above are examples; replace them with local writable paths. The launcher uses the same training overrides as the recorded experiments. On Windows it replaces only a POSIX-specific signal diagnostic with portable logging, retaining the Manager's training/checkpoint behavior. The SimCLR builder uses the verified `forward.simclr` API; KNN receives an explicit number of classes.
+Run the fixed full protocol for all three seeds:
+
+```text
+python -m benchmarks.run_cmu_faces --seed 42 --data-root ./cmu_data --output-root ./cmu_runs
+python -m benchmarks.run_cmu_faces --seed 43 --data-root ./cmu_data --output-root ./cmu_runs
+python -m benchmarks.run_cmu_faces --seed 44 --data-root ./cmu_data --output-root ./cmu_runs
+```
+
+Use a fresh `cmu_runs` directory for a new independent reproduction. The original runner may resume if a matching checkpoint already exists. Smoke and formal checkpoints are kept separate. The launcher uses the same training overrides as the recorded experiments. On Windows it replaces only a POSIX-specific signal diagnostic with portable logging, retaining the Manager's training/checkpoint behavior. The SimCLR builder uses the verified `forward.simclr` API; KNN receives an explicit number of classes.
 
 Validate checkpoint reloads and baseline selection before test scoring:
 
 ```text
-python -m benchmarks.evaluate_cmu_faces --data-root E:/QuantLearning/cmu_benchmark --checkpoint-root E:/QuantLearning/cmu_experiments/formal_checkpoints --output E:/QuantLearning/cmu_experiments/reloaded_validation.json
+python -m benchmarks.evaluate_cmu_faces --data-root ./cmu_data --checkpoint-root ./cmu_runs/formal_checkpoints --output ./cmu_runs/reloaded_validation.json
 ```
 
-For a fixed final protocol, add `--include-test` and use a new output filename. The evaluator accepts relocated checkpoint directories, uses strict parameter loading, and stops on a validation-score mismatch before scoring test predictions. Downloaded images and binary checkpoints are not part of the repository submission. Consequently the committed JSON provides the recorded results, while rerunning inference requires retained or reproduced checkpoints.
+After the protocol is fixed, score the test split with:
+
+```text
+python -m benchmarks.evaluate_cmu_faces --data-root ./cmu_data --checkpoint-root ./cmu_runs/formal_checkpoints --output ./cmu_runs/evaluation_final.json --include-test
+```
+
+The evaluator accepts relocated checkpoint directories, uses strict parameter loading, and stops on a validation-score mismatch before scoring test predictions. Downloaded images and binary checkpoints are not part of the repository submission. Consequently the committed JSON provides the recorded results, while rerunning inference requires retained or reproduced checkpoints.
 
 ## Tests
 
 Offline tests construct miniature nested archives and cover all 32 pose/expression/eye combinations, fixed ordering, subject routing, bad-file exclusion, invalid metadata, public exports, shared downloads and cache reuse. Real-data tests additionally check exact split sizes, all 624 image decodes, label coverage and disjoint subject groups.
 
-Windows commands:
+Offline and optional benchmark tests (from the repository root):
 
 ```text
-set "CMU_FACES_ARCHIVE=E:\QuantLearning\dataset_sources\cmu_faces.zip"
 python -m pytest stable_datasets/tests/test_cmu_faces.py stable_datasets/tests/test_cmu_faces_offline.py stable_datasets/tests/test_schema.py -q
 python -m pytest stable_datasets/tests/test_cmu_benchmark.py -q
 python -m pytest stable_datasets/tests/test_benchmarks.py::TestDatasetConfig stable_datasets/tests/test_benchmarks.py::TestTransforms -q
 ```
 
-Without `CMU_FACES_ARCHIVE`, the real-data tests skip; the offline archive tests still run. The optional benchmark tests need torch and stable-pretraining and check actual image transforms, the CMU crop/flip policy including local-crop requests, and unchanged CIFAR defaults. A separate audit recomputed accuracy, balanced accuracy and macro-F1 from every committed confusion matrix and found agreement within 1e-12.
+Without `CMU_FACES_ARCHIVE`, the real-data tests skip; the offline archive tests still run. To enable real-data tests after a smoke test has downloaded the ZIP, Windows Command Prompt users can run:
+
+```text
+for %F in (cmu_data\downloads\*cmu*face*images*.zip) do set "CMU_FACES_ARCHIVE=%~fF"
+python -m pytest stable_datasets/tests/test_cmu_faces.py -q
+```
+
+In a POSIX shell:
+
+```sh
+CMU_FACES_ARCHIVE="$(find cmu_data/downloads -maxdepth 1 -type f -name '*cmu*face*images*.zip' -print -quit)" python -m pytest stable_datasets/tests/test_cmu_faces.py -q
+```
+
+The optional benchmark tests need torch and stable-pretraining and check actual image transforms, the CMU crop/flip policy including local-crop requests, and unchanged CIFAR defaults. A separate audit recomputed accuracy, balanced accuracy and macro-F1 from every committed confusion matrix and found agreement within 1e-12.
