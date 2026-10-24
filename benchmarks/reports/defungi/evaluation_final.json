@@ -1,0 +1,408 @@
+{
+  "class_order": [
+    "H1",
+    "H2",
+    "H3",
+    "H5",
+    "H6"
+  ],
+  "checkpoint_selection_metric": "validation balanced accuracy",
+  "test_evaluated": true,
+  "pixel_baseline": "16x16 RGB bilinear resize; train-fitted standardization; C selected on validation balanced accuracy",
+  "results": [
+    {
+      "method": "simclr_online_linear_probe",
+      "seed": 42,
+      "checkpoint": "simclr_vit_tiny_patch16_224_defungi_seed42/epoch=35-step=7164.ckpt",
+      "checkpoint_epoch": 35,
+      "recorded_validation_score": 0.6351346373558044,
+      "validation": {
+        "accuracy": 0.6223207686622321,
+        "balanced_accuracy": 0.635134626348807,
+        "macro_f1": 0.5139013973101826,
+        "confusion_matrix": [
+          [
+            644,
+            0,
+            70,
+            9,
+            11
+          ],
+          [
+            251,
+            0,
+            94,
+            17,
+            15
+          ],
+          [
+            13,
+            0,
+            23,
+            6,
+            8
+          ],
+          [
+            8,
+            0,
+            2,
+            94,
+            5
+          ],
+          [
+            0,
+            0,
+            2,
+            0,
+            81
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.6367552045944006,
+        "balanced_accuracy": 0.629129940992412,
+        "macro_f1": 0.5228627346665042,
+        "confusion_matrix": [
+          [
+            591,
+            0,
+            49,
+            45,
+            9
+          ],
+          [
+            174,
+            0,
+            97,
+            19,
+            21
+          ],
+          [
+            5,
+            0,
+            88,
+            24,
+            17
+          ],
+          [
+            0,
+            0,
+            0,
+            111,
+            24
+          ],
+          [
+            22,
+            0,
+            0,
+            0,
+            97
+          ]
+        ]
+      }
+    },
+    {
+      "method": "simclr_online_linear_probe",
+      "seed": 43,
+      "checkpoint": "simclr_vit_tiny_patch16_224_defungi_seed43/epoch=29-step=5970.ckpt",
+      "checkpoint_epoch": 29,
+      "recorded_validation_score": 0.6483868956565857,
+      "validation": {
+        "accuracy": 0.631189948263119,
+        "balanced_accuracy": 0.6483869069507876,
+        "macro_f1": 0.5955757814900317,
+        "confusion_matrix": [
+          [
+            508,
+            157,
+            53,
+            1,
+            15
+          ],
+          [
+            129,
+            162,
+            58,
+            13,
+            15
+          ],
+          [
+            3,
+            14,
+            20,
+            5,
+            8
+          ],
+          [
+            8,
+            10,
+            0,
+            89,
+            2
+          ],
+          [
+            0,
+            6,
+            2,
+            0,
+            75
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.6482412060301508,
+        "balanced_accuracy": 0.6851876795496545,
+        "macro_f1": 0.6416153244668201,
+        "confusion_matrix": [
+          [
+            451,
+            172,
+            35,
+            22,
+            14
+          ],
+          [
+            86,
+            160,
+            43,
+            2,
+            20
+          ],
+          [
+            3,
+            2,
+            91,
+            21,
+            17
+          ],
+          [
+            0,
+            5,
+            0,
+            107,
+            23
+          ],
+          [
+            13,
+            12,
+            0,
+            0,
+            94
+          ]
+        ]
+      }
+    },
+    {
+      "method": "training_majority_class",
+      "predicted_class": 0,
+      "validation": {
+        "accuracy": 0.5424981522542498,
+        "balanced_accuracy": 0.2,
+        "macro_f1": 0.14068040249161476,
+        "confusion_matrix": [
+          [
+            734,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            377,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            109,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            83,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.49820531227566406,
+        "balanced_accuracy": 0.2,
+        "macro_f1": 0.13301389554384285,
+        "confusion_matrix": [
+          [
+            694,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            311,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            134,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            135,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            119,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "method": "standardized_16x16_rgb_pixels_logistic_regression",
+      "selected_C": 0.01,
+      "validation": {
+        "accuracy": 0.5742793791574279,
+        "balanced_accuracy": 0.35700580123871106,
+        "macro_f1": 0.34472761914717454,
+        "confusion_matrix": [
+          [
+            665,
+            48,
+            12,
+            7,
+            2
+          ],
+          [
+            286,
+            51,
+            14,
+            7,
+            19
+          ],
+          [
+            22,
+            11,
+            4,
+            3,
+            10
+          ],
+          [
+            58,
+            28,
+            11,
+            8,
+            4
+          ],
+          [
+            3,
+            8,
+            1,
+            22,
+            49
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.5563531945441493,
+        "balanced_accuracy": 0.35493982289769493,
+        "macro_f1": 0.3550042700967951,
+        "confusion_matrix": [
+          [
+            652,
+            39,
+            3,
+            0,
+            0
+          ],
+          [
+            258,
+            31,
+            2,
+            1,
+            19
+          ],
+          [
+            104,
+            8,
+            5,
+            5,
+            12
+          ],
+          [
+            25,
+            46,
+            7,
+            33,
+            24
+          ],
+          [
+            32,
+            15,
+            10,
+            8,
+            54
+          ]
+        ]
+      }
+    }
+  ],
+  "simclr_summary": {
+    "validation": {
+      "accuracy": {
+        "mean": 0.6267553584626755,
+        "sample_std": 0.006271457039348564,
+        "n_seeds": 2
+      },
+      "balanced_accuracy": {
+        "mean": 0.6417607666497973,
+        "sample_std": 0.009370777479847412,
+        "n_seeds": 2
+      },
+      "macro_f1": {
+        "mean": 0.5547385894001071,
+        "sample_std": 0.05775251090280655,
+        "n_seeds": 2
+      }
+    },
+    "test": {
+      "accuracy": {
+        "mean": 0.6424982053122756,
+        "sample_std": 0.008121829503937375,
+        "n_seeds": 2
+      },
+      "balanced_accuracy": {
+        "mean": 0.6571588102710333,
+        "sample_std": 0.03963880707180876,
+        "n_seeds": 2
+      },
+      "macro_f1": {
+        "mean": 0.5822390295666622,
+        "sample_std": 0.0839707615312678,
+        "n_seeds": 2
+      }
+    }
+  }
+}

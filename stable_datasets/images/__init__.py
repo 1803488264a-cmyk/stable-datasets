@@ -14,6 +14,7 @@ from .clevrer import CLEVRER
 from .cmu_faces import CMUFaces
 from .country211 import Country211
 from .cub200 import CUB200
+from .defungi import DeFungi
 from .dsprites import DSprites
 from .dsprites_color import DSpritesColor
 from .dsprites_noise import DSpritesNoise
@@ -63,6 +64,7 @@ __all__ = [
     "CMUFaces",
     "Country211",
     "CUB200",
+    "DeFungi",
     "DSprites",
     "DSpritesColor",
     "DSpritesNoise",

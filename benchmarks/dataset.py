@@ -117,6 +117,18 @@ def _timeseries(
 
 
 DATASET_CONFIGS: dict[str, DatasetConfig] = {
+    "defungi": DatasetConfig(
+        name="defungi",
+        display_name="DeFungi",
+        num_classes=5,
+        channels=3,
+        mean=[0.53540354, 0.53722106, 0.50681663],
+        std=[0.07524247, 0.06417255, 0.08008631],
+        image_size=(96, 96),
+        builder_name="DeFungi",
+        num_channels=3,
+        min_crop_scale=0.5,
+    ),
     "cmufaces": DatasetConfig(
         name="cmufaces",
         display_name="CMU Face Images",

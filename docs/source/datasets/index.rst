@@ -66,6 +66,8 @@ Available Datasets
    food101
    cub200
    country211
+   cmu_faces
+   defungi
    galaxy10
    hasy_v2
    face_pointing
