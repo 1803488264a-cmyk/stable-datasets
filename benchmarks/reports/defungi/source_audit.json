@@ -1,0 +1,76 @@
+{
+  "dataset": "DeFungi",
+  "archive_sha256": "02020311d1f8207f3aa3bf8b2303a5106463ac0bf35adde4ae042e8b2716ff6c",
+  "images": 9114,
+  "class_order": [
+    "H1",
+    "H2",
+    "H3",
+    "H5",
+    "H6"
+  ],
+  "class_counts": {
+    "H1": 4404,
+    "H2": 2334,
+    "H3": 819,
+    "H5": 818,
+    "H6": 739
+  },
+  "source_groups": 447,
+  "duplicate_linked_groups": 440,
+  "byte_duplicate_clusters": 59,
+  "duplicate_extra_images": 59,
+  "duplicate_clusters_crossing_source_groups": 51,
+  "split_rule": "Class-wise SHA256 rank of defungi-v1:42:<component>; floor 70/15%, remainder test.",
+  "splits": {
+    "train": {
+      "images": 6368,
+      "class_counts": {
+        "H1": 2976,
+        "H2": 1646,
+        "H3": 635,
+        "H5": 574,
+        "H6": 537
+      },
+      "source_groups": 312,
+      "split_groups": 306
+    },
+    "validation": {
+      "images": 1353,
+      "class_counts": {
+        "H1": 734,
+        "H2": 377,
+        "H3": 50,
+        "H5": 109,
+        "H6": 83
+      },
+      "source_groups": 64,
+      "split_groups": 64
+    },
+    "test": {
+      "images": 1393,
+      "class_counts": {
+        "H1": 694,
+        "H2": 311,
+        "H3": 134,
+        "H5": 135,
+        "H6": 119
+      },
+      "source_groups": 71,
+      "split_groups": 70
+    }
+  },
+  "normalization": {
+    "mean": [
+      0.5354035448531504,
+      0.5372210552834614,
+      0.5068166344577959
+    ],
+    "std": [
+      0.07524247336116197,
+      0.06417254850200883,
+      0.08008630877766265
+    ],
+    "method": "Training images only; Pillow bilinear resize to 96x96; RGB/255; population moments in float64."
+  }
+}

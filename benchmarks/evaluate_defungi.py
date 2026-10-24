@@ -6,13 +6,13 @@ from pathlib import Path, PureWindowsPath
 
 import numpy as np
 import torch
+from PIL import Image
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, confusion_matrix, f1_score
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
-from torch import nn
-from PIL import Image
 from threadpoolctl import threadpool_limits
+from torch import nn
 
 from benchmarks.dataset import get_config
 from benchmarks.models import create_backbone, val_transform
@@ -32,10 +32,7 @@ def predict(backbone, head, records, transform, device):
     outputs = []
     with torch.inference_mode():
         for start in range(0, len(records), 32):
-            batch = torch.stack([
-                transform(records[i])["image"]
-                for i in range(start, min(start + 32, len(records)))
-            ])
+            batch = torch.stack([transform(records[i])["image"] for i in range(start, min(start + 32, len(records)))])
             outputs.append(head(backbone(batch.to(device))).argmax(dim=1).cpu())
     return torch.cat(outputs).numpy()
 
@@ -193,7 +190,7 @@ def main():
         "simclr_summary": summary,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    args.output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 
     for result in results:
         print(

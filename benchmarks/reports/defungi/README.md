@@ -14,7 +14,7 @@ The DeFungi configuration uses random resized crops with minimum scale 0.5 and t
 
 An online linear classifier learns from detached encoder features and training labels. Labels do not supervise the SimCLR encoder loss. This is an online probe, not a separately converged post-training linear evaluation. Each checkpoint is selected by validation balanced accuracy (macro-averaged recall). Reloading reproduced both recorded validation scores within 1e-5 before test predictions were scored. Both seeds are reported; no test-based seed or hyperparameter selection is performed.
 
-Terminal logs reached epoch 49 for both runs. The retained `last.ckpt` files record epochs 35 and 29 and refer to those best checkpoints; they are not evidence of the final training state and must not be described as epoch-49 checkpoints. The evaluator follows the recorded best-model path. Preserve training logs separately to audit completed training length.
+Terminal logs reached epoch 49 for both runs. The retained `last.ckpt` files record epochs 35 and 29 and refer to the validation-selected checkpoints. The evaluator follows the recorded best-model path. The committed results describe these selected checkpoints; the checkpoint epoch fields do not establish the completed training length.
 
 The majority baseline predicts H1, the most frequent training class. The pixel baseline resizes images to 16x16 RGB using bilinear interpolation, standardizes its 768 features using training-only statistics, and fits logistic regression on training labels. C is selected from [0.01, 0.1, 1, 10] using validation balanced accuracy; selected C is 0.01. These are simple task-level baselines, not a controlled representation ablation.
 

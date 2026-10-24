@@ -1,5 +1,5 @@
 DeFungi
--------
+========
 
 DeFungi contains 9,114 RGB microscopy patches in five classes. This builder
 preserves the original JPEG bytes and class codes. It provides a custom,
@@ -127,7 +127,7 @@ uses a main guard because the shared downloader starts subprocesses:
 once and verified on a fresh download; subsequent loads reuse the Arrow cache.
 
 Tests and data audit
--------------------
+--------------------
 
 Offline tests cover archive ordering, label mappings, malformed inputs,
 transitive duplicate links, source grouping, cache reuse and shared downloads.
@@ -142,6 +142,9 @@ cross-split group and hash separation, and all 9,114 image decodes.
 
 Real-data tests require ``DEFUNGI_ARCHIVE`` to point to the downloaded ZIP;
 otherwise they skip. Benchmark tests require the optional training dependencies.
+The training protocol, two-seed SimCLR results, task baselines, confusion
+matrices and limitations are documented in
+``benchmarks/reports/defungi/README.md`` in the source checkout.
 The source audit and training-only normalization can be regenerated with:
 
 .. code-block:: text
