@@ -90,6 +90,8 @@ Available Datasets
    rock_paper_scissor
    svhn
    linnaeus5
+   horse_or_human
+   semeion
    malaria
    kather_colorectal_histology
    sun397
