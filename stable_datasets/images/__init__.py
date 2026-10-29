@@ -11,6 +11,7 @@ from .cifar10 import CIFAR10
 from .cifar10_c import CIFAR10C
 from .cifar100 import CIFAR100
 from .cifar100_c import CIFAR100C
+from .cinic10 import CINIC10
 from .clevrer import CLEVRER
 from .coil100 import COIL100
 from .country211 import Country211
@@ -45,6 +46,7 @@ from .not_mnist import NotMNIST
 
 # from .mnist import MNIST
 from .oxford_iiit_pet import OxfordIIITPet
+from .patch_camelyon import PatchCamelyon
 
 # from .places365_small import Places365Small
 from .rock_paper_scissor import RockPaperScissor
@@ -70,6 +72,7 @@ __all__ = [
     "CIFAR10C",
     "CIFAR100",
     "CIFAR100C",
+    "CINIC10",
     "CLEVRER",
     "COIL100",
     "Country211",
@@ -99,6 +102,7 @@ __all__ = [
     "Linnaeus5",
     "MedMNIST",
     "NotMNIST",
+    "PatchCamelyon",
     "OxfordIIITPet",
     "RockPaperScissor",
     "Shapes3D",
