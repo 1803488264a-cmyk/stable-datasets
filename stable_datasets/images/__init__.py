@@ -30,6 +30,7 @@ from .fashion_mnist import FashionMNIST
 from .fgvc_aircraft import FGVCAircraft
 from .flowers17 import Flowers17
 from .flowers102 import Flowers102
+from .fmd import FMD
 from .food101 import Food101
 from .galaxy10 import Galaxy10Decal
 from .hasy_v2 import HASYv2
@@ -56,6 +57,7 @@ from .stanford40 import Stanford40
 from .stl10 import STL10
 from .sun397 import SUN397
 from .svhn import SVHN
+from .tf_flowers import TFFlowers
 from .tiny_imagenet import TinyImagenet
 from .tiny_imagenet_c import TinyImagenetC
 from .usps import USPS
@@ -90,6 +92,7 @@ __all__ = [
     "FGVCAircraft",
     "Flowers17",
     "Flowers102",
+    "FMD",
     "Galaxy10Decal",
     "Food101",
     "HASYv2",
@@ -98,6 +101,7 @@ __all__ = [
     "ImageNetA",
     "ImageNetR",
     "Imagenette",
+    "TFFlowers",
     "Imagewoof",
     "KMNIST",
     "Linnaeus5",

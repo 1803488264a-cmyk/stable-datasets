@@ -71,8 +71,10 @@ Available Datasets
    fgvc_aircraft
    flowers17
    flowers102
+   tf_flowers
    imagewoof
    food101
+   fmd
    cub200
    country211
    galaxy10
