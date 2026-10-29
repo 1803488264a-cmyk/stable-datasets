@@ -4,6 +4,7 @@ from .arabic_characters import ArabicCharacters
 from .arabic_digits import ArabicDigits
 from .awa2 import AWA2
 from .beans import Beans
+from .breakhis import BreakHis
 from .bsds500 import BSDS500
 from .caltech256 import Caltech256
 from .cars3d import Cars3D
@@ -58,6 +59,7 @@ from .not_mnist import NotMNIST
 # from .mnist import MNIST
 from .oxford_iiit_pet import OxfordIIITPet
 from .patch_camelyon import PatchCamelyon
+from .patternnet import PatternNet
 
 # from .places365_small import Places365Small
 from .rock_paper_scissor import RockPaperScissor
@@ -81,6 +83,7 @@ __all__ = [
     "ArabicDigits",
     "AWA2",
     "Beans",
+    "BreakHis",
     "BSDS500",
     "Caltech256",
     "Cars196",
@@ -130,6 +133,7 @@ __all__ = [
     "Malaria",
     "MedMNIST",
     "NotMNIST",
+    "PatternNet",
     "PatchCamelyon",
     "OxfordIIITPet",
     "RockPaperScissor",
