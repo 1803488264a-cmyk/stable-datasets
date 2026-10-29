@@ -20,10 +20,11 @@ from .dsprites_noise import DSpritesNoise
 from .dsprites_scream import DSpritesScream
 from .dtd import DTD
 from .e_mnist import EMNIST
-from .face_pointing import FacePointing
-from .fashion_mnist import FashionMNIST
 
 # from .celeb_a import CelebA
+from .eurosat import EuroSAT
+from .face_pointing import FacePointing
+from .fashion_mnist import FashionMNIST
 from .fgvc_aircraft import FGVCAircraft
 from .flowers102 import Flowers102
 from .food101 import Food101
@@ -38,6 +39,8 @@ from .med_mnist import MedMNIST
 from .not_mnist import NotMNIST
 
 # from .mnist import MNIST
+from .oxford_iiit_pet import OxfordIIITPet
+
 # from .places365_small import Places365Small
 from .rock_paper_scissor import RockPaperScissor
 from .shapes3d import Shapes3D
@@ -69,6 +72,7 @@ __all__ = [
     "DSpritesScream",
     "DTD",
     "EMNIST",
+    "EuroSAT",
     "FacePointing",
     "FashionMNIST",
     "FGVCAircraft",
@@ -83,6 +87,7 @@ __all__ = [
     "Linnaeus5",
     "MedMNIST",
     "NotMNIST",
+    "OxfordIIITPet",
     "RockPaperScissor",
     "Shapes3D",
     "SmallNORB",

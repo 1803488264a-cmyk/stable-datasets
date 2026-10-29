@@ -74,6 +74,8 @@ Available Datasets
    rock_paper_scissor
    svhn
    linnaeus5
+   oxford_iiit_pet
+   eurosat
 
 .. toctree::
    :maxdepth: 1
