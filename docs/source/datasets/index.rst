@@ -101,6 +101,8 @@ Available Datasets
    eurosat
    breakhis
    patternnet
+   pacs
+   office_home
 
 .. toctree::
    :maxdepth: 1
