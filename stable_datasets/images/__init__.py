@@ -73,6 +73,7 @@ from .tf_flowers import TFFlowers
 from .tiny_imagenet import TinyImagenet
 from .tiny_imagenet_c import TinyImagenetC
 from .usps import USPS
+from .weizmann_seg import WeizmannSegmentation
 
 
 __all__ = [
@@ -143,4 +144,5 @@ __all__ = [
     "TinyImagenet",
     "TinyImagenetC",
     "USPS",
+    "WeizmannSegmentation",
 ]

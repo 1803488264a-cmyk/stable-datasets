@@ -104,6 +104,7 @@ Available Datasets
    :maxdepth: 1
    :caption: Image Segmentation Datasets
 
+   weizmann_seg
    bsds500
 
 .. toctree::
