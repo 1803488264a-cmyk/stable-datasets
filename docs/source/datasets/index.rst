@@ -81,6 +81,7 @@ Available Datasets
    rock_paper_scissor
    svhn
    linnaeus5
+   sun397
    stanford40
    usps
    oxford_iiit_pet
