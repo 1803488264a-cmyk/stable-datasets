@@ -50,10 +50,12 @@ from .oxford_iiit_pet import OxfordIIITPet
 from .rock_paper_scissor import RockPaperScissor
 from .shapes3d import Shapes3D
 from .small_norb import SmallNORB
+from .stanford40 import Stanford40
 from .stl10 import STL10
 from .svhn import SVHN
 from .tiny_imagenet import TinyImagenet
 from .tiny_imagenet_c import TinyImagenetC
+from .usps import USPS
 
 
 __all__ = [
@@ -101,8 +103,10 @@ __all__ = [
     "RockPaperScissor",
     "Shapes3D",
     "SmallNORB",
+    "Stanford40",
     "STL10",
     "SVHN",
     "TinyImagenet",
     "TinyImagenetC",
+    "USPS",
 ]
