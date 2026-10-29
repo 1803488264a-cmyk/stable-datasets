@@ -83,6 +83,8 @@ Available Datasets
    rock_paper_scissor
    svhn
    linnaeus5
+   malaria
+   kather_colorectal_histology
    sun397
    stanford40
    usps

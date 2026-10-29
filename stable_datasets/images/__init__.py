@@ -41,7 +41,9 @@ from .imagenet_a import ImageNetA
 from .imagenet_r import ImageNetR
 from .imagewoof import Imagewoof
 from .k_mnist import KMNIST
+from .kather_colorectal_histology import KatherColorectalHistology
 from .linnaeus5 import Linnaeus5
+from .malaria import Malaria
 from .med_mnist import MedMNIST
 from .not_mnist import NotMNIST
 
@@ -104,7 +106,9 @@ __all__ = [
     "TFFlowers",
     "Imagewoof",
     "KMNIST",
+    "KatherColorectalHistology",
     "Linnaeus5",
+    "Malaria",
     "MedMNIST",
     "NotMNIST",
     "PatchCamelyon",
