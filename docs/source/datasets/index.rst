@@ -68,6 +68,8 @@ Available Datasets
    stl10
    tiny_imagenet
    tiny_imagenet_c
+   imagenet_v2
+   imagenet_sketch
    imagenet_a
    imagenet_r
    e_mnist

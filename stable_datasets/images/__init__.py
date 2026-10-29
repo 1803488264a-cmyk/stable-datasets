@@ -41,6 +41,8 @@ from .imagenet_10 import Imagenette
 from .imagenet_100 import ImageNet100
 from .imagenet_a import ImageNetA
 from .imagenet_r import ImageNetR
+from .imagenet_sketch import ImageNetSketch
+from .imagenet_v2 import ImageNetV2
 from .imagewoof import Imagewoof
 from .k_mnist import KMNIST
 from .k_mnist49 import KMNIST49
@@ -106,6 +108,8 @@ __all__ = [
     "HASYv2",
     "ImageNet1K",
     "ImageNet100",
+    "ImageNetSketch",
+    "ImageNetV2",
     "ImageNetA",
     "ImageNetR",
     "Imagenette",
