@@ -46,6 +46,7 @@ Available Datasets
 
    arabic_characters
    arabic_digits
+   caltech256
    cifar10
    cifar100
    cifar10_c

@@ -4,6 +4,7 @@ from .arabic_characters import ArabicCharacters
 from .arabic_digits import ArabicDigits
 from .awa2 import AWA2
 from .beans import Beans
+from .caltech256 import Caltech256
 from .cars3d import Cars3D
 from .cars196 import Cars196
 from .cifar10 import CIFAR10
@@ -58,6 +59,7 @@ __all__ = [
     "ArabicDigits",
     "AWA2",
     "Beans",
+    "Caltech256",
     "Cars196",
     "Cars3D",
     "CIFAR10",
