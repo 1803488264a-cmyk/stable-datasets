@@ -35,6 +35,7 @@ from .flowers102 import Flowers102
 from .fmd import FMD
 from .food101 import Food101
 from .galaxy10 import Galaxy10Decal
+from .gtsrb import GTSRB
 from .hasy_v2 import HASYv2
 from .imagenet_1k import ImageNet1K
 from .imagenet_10 import Imagenette
@@ -105,6 +106,7 @@ __all__ = [
     "FMD",
     "Galaxy10Decal",
     "Food101",
+    "GTSRB",
     "HASYv2",
     "ImageNet1K",
     "ImageNet100",
