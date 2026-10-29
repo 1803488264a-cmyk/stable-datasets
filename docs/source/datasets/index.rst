@@ -67,6 +67,7 @@ Available Datasets
    imagenet_r
    e_mnist
    fgvc_aircraft
+   flowers17
    flowers102
    imagewoof
    food101
