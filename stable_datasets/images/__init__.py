@@ -7,6 +7,7 @@ from .beans import Beans
 from .caltech256 import Caltech256
 from .cars3d import Cars3D
 from .cars196 import Cars196
+from .cct20 import CCT20
 from .cifar10 import CIFAR10
 from .cifar10_c import CIFAR10C
 from .cifar100 import CIFAR100
@@ -16,6 +17,7 @@ from .clevrer import CLEVRER
 from .coil100 import COIL100
 from .country211 import Country211
 from .cub200 import CUB200
+from .deep_weeds import DeepWeeds
 from .dsprites import DSprites
 from .dsprites_color import DSpritesColor
 from .dsprites_noise import DSpritesNoise
@@ -73,6 +75,7 @@ __all__ = [
     "Caltech256",
     "Cars196",
     "Cars3D",
+    "CCT20",
     "CIFAR10",
     "CIFAR10C",
     "CIFAR100",
@@ -82,6 +85,7 @@ __all__ = [
     "COIL100",
     "Country211",
     "CUB200",
+    "DeepWeeds",
     "DSprites",
     "DSpritesColor",
     "DSpritesNoise",

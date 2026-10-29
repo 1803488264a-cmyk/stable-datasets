@@ -53,6 +53,7 @@ Available Datasets
    cifar100_c
    cinic10
    cars196
+   cct20
    coil100
    dtd
    not_mnist
@@ -62,6 +63,7 @@ Available Datasets
    patch_camelyon
    awa2
    beans
+   deep_weeds
    stl10
    tiny_imagenet
    tiny_imagenet_c
