@@ -59,6 +59,7 @@ Available Datasets
    not_mnist
    fashion_mnist
    k_mnist
+   k_mnist49
    medmnist
    patch_camelyon
    awa2
@@ -78,6 +79,7 @@ Available Datasets
    food101
    fmd
    cub200
+   stanford_dogs
    country211
    galaxy10
    hasy_v2

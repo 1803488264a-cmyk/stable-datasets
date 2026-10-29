@@ -43,6 +43,7 @@ from .imagenet_a import ImageNetA
 from .imagenet_r import ImageNetR
 from .imagewoof import Imagewoof
 from .k_mnist import KMNIST
+from .k_mnist49 import KMNIST49
 from .kather_colorectal_histology import KatherColorectalHistology
 from .linnaeus5 import Linnaeus5
 from .malaria import Malaria
@@ -58,6 +59,7 @@ from .rock_paper_scissor import RockPaperScissor
 from .shapes3d import Shapes3D
 from .small_norb import SmallNORB
 from .stanford40 import Stanford40
+from .stanford_dogs import StanfordDogs
 from .stl10 import STL10
 from .sun397 import SUN397
 from .svhn import SVHN
@@ -110,6 +112,7 @@ __all__ = [
     "TFFlowers",
     "Imagewoof",
     "KMNIST",
+    "KMNIST49",
     "KatherColorectalHistology",
     "Linnaeus5",
     "Malaria",
@@ -122,6 +125,7 @@ __all__ = [
     "SmallNORB",
     "Stanford40",
     "STL10",
+    "StanfordDogs",
     "SUN397",
     "SVHN",
     "TinyImagenet",
