@@ -48,6 +48,8 @@ Available Datasets
    arabic_digits
    caltech256
    cifar10
+   cifar10_1
+   cifar10_2
    cifar100
    cifar10_c
    cifar100_c
