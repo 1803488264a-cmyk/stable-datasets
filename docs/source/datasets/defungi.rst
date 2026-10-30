@@ -126,30 +126,19 @@ uses a main guard because the shared downloader starts subprocesses:
 ``processed_cache_dir`` control cache locations. The shared ZIP is downloaded
 once and verified on a fresh download; subsequent loads reuse the Arrow cache.
 
-Tests and data audit
---------------------
+Tests
+-----
 
-Offline tests cover archive ordering, label mappings, malformed inputs,
-transitive duplicate links, source grouping, cache reuse and shared downloads.
-Real-data tests additionally check the archive checksum, exact counts,
-cross-split group and hash separation, and all 9,114 image decodes.
-
-.. code-block:: text
-
-    python -m pytest stable_datasets/tests/test_defungi_offline.py -q
-    python -m pytest stable_datasets/tests/test_defungi.py -q
-    python -m pytest stable_datasets/tests/test_defungi_benchmark.py -q
-
-Real-data tests require ``DEFUNGI_ARCHIVE`` to point to the downloaded ZIP;
-otherwise they skip. Benchmark tests require the optional training dependencies.
-The training protocol, two-seed SimCLR results, task baselines, confusion
-matrices and limitations are documented in
-``benchmarks/reports/defungi/README.md`` in the source checkout.
-The source audit and training-only normalization can be regenerated with:
+The integration test downloads the public archive through ``DeFungi`` into
+fresh temporary directories. It checks exact split and class counts, fields
+and label ranges, all 9,114 image decodes, unique image IDs, source-group and
+linked-group separation, and that identical JPEG bytes never cross splits.
+It also checks loading from the processed cache. No manual download or login
+is required.
 
 .. code-block:: text
 
-    python examples/audit_defungi.py --archive ./defungi.zip --output ./defungi_audit.json
+    python -m pytest stable_datasets/tests/images/test_defungi.py -q
 
 Citation
 --------

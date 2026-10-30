@@ -15,7 +15,6 @@ Source
 * Homepage: https://archive.ics.uci.edu/dataset/124/cmu+face+images
 * DOI: https://doi.org/10.24432/C5JC79
 * License: CC BY 4.0, as stated by UCI; distinct from the code license.
-* Citation: Mitchell, T. (1997). CMU Face Images. UCI Machine Learning Repository.
 * ZIP SHA-256: ``01a8b6cc58ac2f825f72abd6cf2b393df067c6529d96f7a90b22dede71b142cc``.
 
 Fields and labels
@@ -64,20 +63,28 @@ Use a main guard when saving the example as a Windows script:
 ``processed_cache_dir`` relocate raw and processed caches. Shared split assets
 are downloaded once. Images preserve their original grayscale pixels.
 
-Validation and experiments
---------------------------
+Tests
+-----
 
-Offline tests cover parsing, all label combinations, malformed metadata,
-subject routing, cache reuse and public exports. Real-data tests check counts,
-all 624 image decodes and disjoint identities. ``CMU_FACES_ARCHIVE`` enables
-the real-archive tests; they skip if the variable is absent.
+The integration test downloads the public archive through ``CMUFaces`` into
+fresh temporary directories. It checks split sizes, fields and label ranges,
+all 624 image decodes, unique annotations, subject-disjoint partitions and
+loading from the processed cache. No manual download or login is required.
 
 .. code-block:: text
 
-    python -m pytest stable_datasets/tests/test_cmu_faces.py stable_datasets/tests/test_cmu_faces_offline.py -q
-    python -m pytest stable_datasets/tests/test_cmu_benchmark.py -q
+    python -m pytest stable_datasets/tests/images/test_cmu_faces.py -q
 
-The training protocol, three-seed SimCLR results, two supervised task baselines,
-confusion matrices and limitations are documented in
-``benchmarks/reports/cmu_faces/README.md`` in the source checkout. The image
-loader retains native resolution; benchmark transforms resize images to 64x64.
+Citation
+--------
+
+.. code-block:: bibtex
+
+    @misc{cmu_face_images_124,
+        author = {Mitchell, Tom},
+        title = {CMU Face Images},
+        publisher = {UCI Machine Learning Repository},
+        year = {1997},
+        doi = {10.24432/C5JC79},
+        url = {https://archive.ics.uci.edu/dataset/124/cmu+face+images}
+    }
