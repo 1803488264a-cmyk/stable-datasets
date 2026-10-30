@@ -6,6 +6,7 @@ from .awa2 import AWA2
 from .beans import Beans
 from .breakhis import BreakHis
 from .bsds500 import BSDS500
+from .caltech101_silhouettes import Caltech101Silhouettes
 from .caltech256 import Caltech256
 from .cars3d import Cars3D
 from .cars196 import Cars196
@@ -57,6 +58,7 @@ from .kather_colorectal_histology import KatherColorectalHistology
 from .linnaeus5 import Linnaeus5
 from .malaria import Malaria
 from .med_mnist import MedMNIST
+from .mnist_c import MNISTC
 from .not_mnist import NotMNIST
 
 # from .mnist import MNIST
@@ -91,6 +93,7 @@ __all__ = [
     "Beans",
     "BreakHis",
     "BSDS500",
+    "Caltech101Silhouettes",
     "Caltech256",
     "Cars196",
     "Cars3D",
@@ -141,6 +144,7 @@ __all__ = [
     "Linnaeus5",
     "Malaria",
     "MedMNIST",
+    "MNISTC",
     "NotMNIST",
     "PlantVillage",
     "OfficeHome",

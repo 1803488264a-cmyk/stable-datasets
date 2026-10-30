@@ -75,6 +75,7 @@ Available Datasets
    imagenet_a
    imagenet_r
    e_mnist
+   mnist_c
    fgvc_aircraft
    flowers17
    flowers102
@@ -107,6 +108,7 @@ Available Datasets
    patternnet
    pacs
    office_home
+   caltech101_silhouettes
 
 .. toctree::
    :maxdepth: 1
