@@ -48,6 +48,7 @@ from .imagenet_r import ImageNetR
 from .imagenet_sketch import ImageNetSketch
 from .imagenet_v2 import ImageNetV2
 from .imagewoof import Imagewoof
+from .intel_image_classification import IntelImageClassification
 from .k_mnist import KMNIST
 from .k_mnist49 import KMNIST49
 from .kather_colorectal_histology import KatherColorectalHistology
@@ -62,6 +63,7 @@ from .oxford_iiit_pet import OxfordIIITPet
 from .pacs import PACS
 from .patch_camelyon import PatchCamelyon
 from .patternnet import PatternNet
+from .plant_village import PlantVillage
 
 # from .places365_small import Places365Small
 from .rock_paper_scissor import RockPaperScissor
@@ -126,6 +128,7 @@ __all__ = [
     "ImageNetA",
     "ImageNetR",
     "Imagenette",
+    "IntelImageClassification",
     "TFFlowers",
     "Imagewoof",
     "KMNIST",
@@ -135,6 +138,7 @@ __all__ = [
     "Malaria",
     "MedMNIST",
     "NotMNIST",
+    "PlantVillage",
     "OfficeHome",
     "PACS",
     "PatternNet",
