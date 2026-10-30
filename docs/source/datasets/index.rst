@@ -55,12 +55,14 @@ Available Datasets
    cifar100_c
    cinic10
    cars196
+   coil20
    cct20
    coil100
    dtd
    not_mnist
    fashion_mnist
    k_mnist
+   kth_tips
    k_mnist49
    medmnist
    patch_camelyon
@@ -94,6 +96,8 @@ Available Datasets
    gtsrb
    hasy_v2
    face_pointing
+   olivetti_faces
+   optdigits
    rock_paper_scissor
    svhn
    linnaeus5
