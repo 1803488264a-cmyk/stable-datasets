@@ -93,6 +93,8 @@ Available Datasets
    rock_paper_scissor
    svhn
    linnaeus5
+   fruits360
+   belgium_tsc
    plant_village
    intel_image_classification
    horse_or_human
