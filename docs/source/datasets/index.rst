@@ -92,6 +92,8 @@ Available Datasets
    gtsrb
    hasy_v2
    face_pointing
+   olivetti_faces
+   optdigits
    rock_paper_scissor
    svhn
    linnaeus5

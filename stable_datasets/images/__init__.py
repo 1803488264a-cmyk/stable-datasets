@@ -67,6 +67,8 @@ from .not_mnist import NotMNIST
 
 # from .mnist import MNIST
 from .office_home import OfficeHome
+from .olivetti_faces import OlivettiFaces
+from .optdigits import Optdigits
 from .oxford_iiit_pet import OxfordIIITPet
 from .pacs import PACS
 from .patch_camelyon import PatchCamelyon
@@ -154,6 +156,8 @@ __all__ = [
     "MedMNIST",
     "MNISTC",
     "NotMNIST",
+    "OlivettiFaces",
+    "Optdigits",
     "PlantVillage",
     "OfficeHome",
     "PACS",
