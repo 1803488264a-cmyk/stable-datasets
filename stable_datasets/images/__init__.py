@@ -32,6 +32,7 @@ from .dtd import DTD
 from .e_mnist import EMNIST
 
 # from .celeb_a import CelebA
+from .eth80 import ETH80
 from .eurosat import EuroSAT
 from .face_pointing import FacePointing
 from .fashion_mnist import FashionMNIST
@@ -40,6 +41,7 @@ from .flowers17 import Flowers17
 from .flowers102 import Flowers102
 from .fmd import FMD
 from .food101 import Food101
+from .freiburg_groceries import FreiburgGroceries
 from .fruits360 import Fruits360
 from .galaxy10 import Galaxy10Decal
 from .gtsrb import GTSRB
@@ -119,6 +121,7 @@ __all__ = [
     "DSpritesScream",
     "DTD",
     "EMNIST",
+    "ETH80",
     "EuroSAT",
     "FacePointing",
     "FashionMNIST",
@@ -128,6 +131,7 @@ __all__ = [
     "FMD",
     "Galaxy10Decal",
     "Food101",
+    "FreiburgGroceries",
     "Fruits360",
     "GTSRB",
     "HASYv2",

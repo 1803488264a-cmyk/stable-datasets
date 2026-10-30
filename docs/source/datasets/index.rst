@@ -75,6 +75,7 @@ Available Datasets
    imagenet_a
    imagenet_r
    e_mnist
+   eth80
    mnist_c
    fgvc_aircraft
    flowers17
@@ -82,6 +83,7 @@ Available Datasets
    tf_flowers
    imagewoof
    food101
+   freiburg_groceries
    fmd
    cub200
    stanford_dogs
